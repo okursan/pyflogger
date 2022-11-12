@@ -12,8 +12,6 @@ def login():
         username = "okursan"
         password = generate_password_hash("123456", method='sha256')
         new_user = User(username=username, password=password)
-        db.session.add(new_user)
-        db.session.commit()
         login_user(user=new_user, remember=True)
         return redirect(url_for('views.home'))
     return render_template("login.html")

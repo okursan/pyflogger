@@ -6,8 +6,7 @@ views = Blueprint('views', __name__)
 
 @views.route('/')
 def home():
-    abc = User.query.all()
-    return render_template("home.html", abc=abc)
+    return render_template("home.html")
 
 @views.route('/<variable>')
 def variable_page(variable):

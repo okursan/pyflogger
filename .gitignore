@@ -11,3 +11,8 @@
 ### Static Files ###
 *.png
 *.ico
+
+### Python Compiled Files ###
+*.pyc
+*.pyo
+*.pyd

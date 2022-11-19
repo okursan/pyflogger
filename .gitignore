@@ -16,3 +16,10 @@
 *.pyc
 *.pyo
 *.pyd
+
+### VS Code ###
+.vscode
+.vscode-test
+.history
+*.code-workspace
+*.code-workspace.*

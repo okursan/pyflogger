@@ -1,0 +1,12 @@
+{% extends 'base_dashboard.html' %}
+{% block title %}Home Page{% endblock %}
+{% block content %}
+
+<form method="POST" action="/post_add">
+    <input class="form-control form-control-lg" type="text" id="title" name="title" placeholder="Title" required>
+    <br />
+    <textarea name="editor" id="editor"></textarea>
+    <button class="btn btn-primary mb-2" type="submit">Add Post</button>
+</form>
+
+{% endblock %}

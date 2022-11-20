@@ -1,0 +1,31 @@
+{% extends 'base_dashboard.html' %}
+{% block title %}Home Page{% endblock %}
+{% block content %}
+This is CS50
+
+<a href="post_add">Add Post</a>
+
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">Author</th>
+      <th scope="col">Date Created</th>
+    </tr>
+  </thead>
+  <tbody>
+
+{% for post in posts %}
+    <tr>
+      <th scope="row">{{ post.id }}</th>
+      <td>{{ post.title }}</td>
+      <td>{{ post.author }}</td>
+      <td>{{ post.date_created }}</td>
+    </tr>
+{% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

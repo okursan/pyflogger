@@ -13,9 +13,9 @@ def create_app():
     
     db.init_app(app)
     
-    from .views import views    # from .views import views as views_blueprint
-    from .auth import auth      # from .auth import auth as auth_blueprint
-    from .dashboard import dashboard # from .dashboard import dashboard as dashboard_blueprint
+    from .views import views            # from .views import views as views_blueprint
+    from .auth import auth              # from .auth import auth as auth_blueprint
+    from .dashboard import dashboard    # from .dashboard import dashboard as dashboard_blueprint
      
     app.register_blueprint(blueprint=views, url_prefix='/')
     app.register_blueprint(blueprint=auth, url_prefix='/')

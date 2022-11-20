@@ -1,15 +1,19 @@
 from flask import Blueprint, render_template
 from flask_login import login_required, current_user
 from . import db
-from .models import User, Post, Comment
+from .models import User, Post, Comment, Category
 
 views = Blueprint('views', __name__)
+
+
 
 @views.route('/')
 def home():
     posts = Post.query.all()
-    return render_template("home.html", user=current_user, posts=posts)
+    category = Category.query.all()
+    return render_template("home.html", user=current_user, posts=posts, category=category)
 
 @views.route('/<variable>')
 def variable_page(variable):
-    return render_template("home.html")
+    category = Category.query.all()
+    return render_template("home.html", category=category)

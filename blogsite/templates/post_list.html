@@ -12,6 +12,7 @@ This is CS50
       <th scope="col">#</th>
       <th scope="col">Title</th>
       <th scope="col">Author</th>
+      <th scope="col">Category</th>
       <th scope="col">Date Created</th>
     </tr>
   </thead>
@@ -21,7 +22,8 @@ This is CS50
     <tr>
       <th scope="row">{{ post.id }}</th>
       <td>{{ post.title }}</td>
-      <td>{{ post.author }}</td>
+      <td>{{ post.author_name.username }}</td>
+      <td>{{ post.category_name.title }}</td>
       <td>{{ post.date_created }}</td>
     </tr>
 {% endfor %}

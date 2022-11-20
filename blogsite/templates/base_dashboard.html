@@ -20,6 +20,36 @@
             menubar: false,
           });
     </script>
+    <script>
+        /* Encode string to slug */
+        function convertToSlug() {
+
+        var title = document.getElementById('title').value;
+
+        //replace all special characters | symbols with a space
+        title = title.replace(/[`~!@#$%^&*()_\-+=\[\]{};:'"\\|\/,.<>?\s]/g, ' ').toLowerCase();
+
+        // remove accents, swap ñ for n, etc
+        var from = "ãàáäâẽèéëêìíïîõòóöôùúüûñçğ·/_,:;";
+        var to   = "aaaaaeeeeeiiiiooooouuuuncg------";
+        for (var i = 0, l = from.length; i < l; i++) {
+            title = title.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
+        }
+
+        // trim spaces at start and end of string
+        title = title.replace(/^\s+|\s+$/gm, '');
+
+        // replace space with dash/hyphen
+        title = title.replace(/\s+/g, '-');
+
+        title = title.replace(/[^a-z0-9 -]/g, '') // remove invalid chars
+                    .replace(/\s+/g, '-') // collapse whitespace and replace by -
+                    .replace(/-+/g, '-'); // collapse dashes
+
+        document.getElementById('url').value = title;
+        //return str;
+        }
+    </script>
 
     <!-- https://favicon.io/emoji-favicons/cool-button -->
     <link href="/static/favicon/favicon.ico" rel="icon">

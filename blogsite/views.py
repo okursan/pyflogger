@@ -10,11 +10,6 @@ def home():
     posts = Post.query.all()
     return render_template("home.html", user=current_user, posts=posts)
 
-@views.route('/dashboard')
-@login_required
-def dashboard():
-    return render_template("dashboard.html")
-
 @views.route('/<variable>')
 def variable_page(variable):
     return render_template("home.html")

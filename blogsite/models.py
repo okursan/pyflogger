@@ -24,6 +24,7 @@ class Post(db.Model):
     category = db.Column(db.Integer, db.ForeignKey('category.id'), default=1)
     author_name = db.relationship('User', backref='author_name')
     category_name = db.relationship('Category', backref='category_name')
+    post_comments = db.relationship('Comment', backref='post_comments')
     
 class Comment(db.Model):
     id = db.Column(db.Integer, primary_key=True)

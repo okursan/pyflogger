@@ -1,0 +1,19 @@
+{% extends 'base_dashboard.html' %}
+{% block title %}Home Page{% endblock %}
+{% block content %}
+
+<form method="POST" action="/post_add">
+    <input class="form-control form-control-lg" type="text" id="title" name="title" placeholder="Title" required>
+    <br />
+    <select class="form-control form-control-lg" name="category" id="category">
+    {% for cat in category %}
+        <option value="{{ cat.id }}">{{ cat.title }}</option>
+    {% endfor %}
+    </select>
+    <br />
+    <textarea name="editor" id="editor"></textarea>
+    <br />
+    <button class="btn btn-primary mb-2" type="submit">Add Post</button>
+</form>
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Home Page{% endblock %}
+{% block content %}
+
+{% for post in posts|reverse %}
+<div class="card mb-3">
+    <div class="card-body">
+      <h5 class="card-title"><a href="post/{{ post.id }}">{{ post.title }}</a></h5>
+      <p class="card-text">{{ post.content | safe }}</p>
+      <p class="card-text">
+        <small class="text-muted">Category: {{ post.category_name.title }}</small>
+        <small class="text-muted">Post Date: {{ post.date_created }}</small>
+        <small class="text-muted">Author: {{ post.author_name.username }}</small></p>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}

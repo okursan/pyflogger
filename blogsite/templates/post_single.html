@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}{{ post.title }}{% endblock %}
+{% block content %}
+
+<div class="card mb-3">
+    <div class="card-body">
+      <h5 class="card-title"><a href="post/{{ post.id }}">{{ post.title }}</a></h5>
+      <p class="card-text">{{ post.content | safe }}</p>
+      <p class="card-text">
+        <small class="text-muted">Category: {{ post.category_name.title }}</small>
+        <small class="text-muted">Post Date: {{ post.date_created }}</small>
+        <small class="text-muted">Author: {{ post.author_name.username }}</small></p>
+    </div>
+</div>
+<h4>Comments</h4>
+{% for comment in comments %}
+<div class="card mb-3">
+  <div class="card-body">
+    <h5 class="card-title">Comment by {{ comment.author }}</h5>
+    <p class="card-text">{{ comment.content | safe }}</p>
+    <p class="card-text">
+      <small class="text-muted">Comment Date: {{ comment.date_created }}</small>
+  </div>
+</div>
+{% endfor %}
+
+<form method="POST" action="/post/{{ post.id }}">
+  <input class="form-control form-control-lg" type="text" id="author" name="author" placeholder="Author" required>
+  <br />
+  <textarea name="editor" id="editor">Your comment.</textarea>
+  <br />
+  <button class="btn btn-primary mb-2" type="submit">Add Comment</button>
+</form>
+
+{% endblock %}
